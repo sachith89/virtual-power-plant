@@ -10,12 +10,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tbl_vpp_battery")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class BatteryEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String postcode;
