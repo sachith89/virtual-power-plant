@@ -20,7 +20,7 @@ public class BatteryServiceTest {
     public void successfullySaveBatteryWhenAllDataCorrect() {
         BatteryEntity battery = new BatteryEntity();
         battery.setName("Amaron");
-        battery.setPostcode(1000);
+        battery.setPostcode("1000");
         battery.setCapacity(13000);
 
         List<BatteryEntity> batteryEntities = new ArrayList<>();

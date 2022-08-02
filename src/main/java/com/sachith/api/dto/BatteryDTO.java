@@ -10,6 +10,6 @@ import lombok.Data;
 public class BatteryDTO {
 
     private String name;
-    private Integer postcode;
+    private String postcode;
     private Integer capacity;
 }

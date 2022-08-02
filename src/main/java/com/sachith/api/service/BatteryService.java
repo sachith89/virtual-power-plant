@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -14,11 +15,13 @@ public class BatteryService {
 
     private final BatteryRepository batteryRepository;
 
+    @Transactional
     public List<BatteryEntity> saveBattery(List<BatteryEntity> batteryEntities) {
         return batteryRepository.saveAll(batteryEntities);
     }
 
-    public ResponseEntity<List<BatteryEntity>> getBatteriesByPostalCode(Integer fromPostCode, Integer toPostCode) {
-        return null;
+
+    public List<BatteryEntity> getBatteriesByPostalCode(String fromPostCode, String toPostCode) {
+        return batteryRepository.findByPostcodeBetween(fromPostCode,toPostCode).get();
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,9 +37,9 @@ public class BatteryController {
 
     @GetMapping("/{postcode1}/{postcode2}")
     public ResponseEntity<List<BatteryEntity>> getBatteriesByPostalCode(
-            @PathVariable("postcode1") Integer fromPostCode,
-            @PathVariable("postcode2") Integer toPostCode
+            @PathVariable("postcode1") @Min(4) @Max(4) Integer fromPostCode,
+            @PathVariable("postcode2") @Min(4) @Max(4) Integer toPostCode
     ) {
-        return batteryService.getBatteriesByPostalCode(fromPostCode, toPostCode);
+        return ResponseEntity.ok(batteryService.getBatteriesByPostalCode(fromPostCode.toString(), toPostCode.toString()));
     }
 }

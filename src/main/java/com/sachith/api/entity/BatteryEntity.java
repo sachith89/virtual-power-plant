@@ -18,6 +18,6 @@ public class BatteryEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Integer postcode;
+    private String postcode;
     private Integer capacity;
 }
