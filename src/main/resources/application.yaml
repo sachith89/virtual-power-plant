@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: virtual-power-plant
+  profiles:
+    active: "dev"
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:h2:mem:vpp_db
+    # url: jdbc:h2:file:/data/vpp_db
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console.enabled: true
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger-ui-custom.html

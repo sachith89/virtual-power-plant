@@ -1,0 +1,6 @@
+springfox:
+  documentation:
+    enabled: true
+
+server:
+  port: 8081
